@@ -1,0 +1,34 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+
+/* Altera a cor de fundo do editor de texto */
+/*.note-editor .note-editable {
+    background-color: #f0f0f0;*/ /* Escolha a cor que desejar */
+    /*color: #333;*/ /* Cor do texto dentro do editor */
+/*}*/
+
+/* Altera a cor da barra de ferramentas */
+.note-toolbar {
+    background-color: red; /* Escolha a cor que desejar, so precisa por o !important */
+}

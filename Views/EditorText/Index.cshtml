@@ -1,0 +1,53 @@
+﻿@model EditorTexto
+
+@{
+    ViewData["Title"] = "Editor Text";
+}
+
+
+<div>
+
+    <h1>Editor de Texto</h1>
+
+    <form asp-action="Create" method="post">
+
+        <textarea id="summernote" asp-for="@Model.Content"></textarea>
+
+        <button type="submit" class="btn btn-primary mt-5">
+            Submit Text
+        </button>
+    </form>
+
+</div>
+
+<div class="mt-5">
+    @Html.Raw(Model.Content)
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+
+        $(document).ready(function () {
+            $('#summernote').summernote({
+                lang: "pt-BR",
+                minHeight: 300,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'italic', 'underline', 'clear']],
+                    ['fontname', ['fontname']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview', 'help']] // Removendo 'fullscreen'
+                ]
+            });
+        });
+
+    </script>
+}
