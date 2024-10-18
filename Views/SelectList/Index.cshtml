@@ -1,0 +1,45 @@
+﻿@model List<int>
+
+@{
+    ViewData["Title"] = "Select List";
+}
+
+<div class="mt-5">
+
+    <form asp-action="Create"
+          method="post">
+
+
+        <select 
+            id="multiple-select-clear-field"
+                class="form-select"
+                asp-items="@ViewBag.Paises"
+                asp-for="@Model"
+                name="request.PaisesId"
+                data-placeholder="Escolha"
+                multiple>
+        </select>
+
+        <button class="btn btn-primary mt-3"
+                type="submit">
+            Enviar Paises
+        </button>
+    </form>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        $('#multiple-select-clear-field').select2({
+            theme: "bootstrap-5",
+            width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+            placeholder: $(this).data('placeholder'),
+            closeOnSelect: false,
+            allowClear: true,
+        });
+    </script>
+}

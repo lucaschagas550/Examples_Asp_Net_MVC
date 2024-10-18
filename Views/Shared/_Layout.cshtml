@@ -16,6 +16,10 @@
     <!--Editor de texto, add CSS pelo add client-side library-->
     <link rel="stylesheet" href="~/summernote/summernote-bs5.css" asp-append-version="true" />
 
+    <!--Select2 MultiSelect, add JS pelo add client-side library-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+
 </head>
 <body>
     <header>
@@ -38,6 +42,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="EditorText" asp-action="Index">
                                 Editor Text
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="SelectList" asp-action="Index">
+                                Select2 MultiSelect
                             </a>
                         </li>
                     </ul>
@@ -70,6 +80,9 @@
     <!--Editor de texto, add JS pelo add client-side library-->
     <script src="~/summernote/summernote-bs5.js" asp-append-version="true"></script>
     <script src="~/summernote/lang/summernote-pt-br.js" asp-append-version="true"></script>
+
+    <!--Select2 MultiSelect, add JS pelo add client-side library-->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
