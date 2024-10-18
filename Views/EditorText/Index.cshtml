@@ -9,11 +9,17 @@
 
     <h1>Editor de Texto</h1>
 
-    <form asp-action="Create" method="post">
+    <form asp-action="Create" method="post" id="textoEditorForm">
 
-        <textarea id="summernote" asp-for="@Model.Content"></textarea>
+        <div>
+            <textarea id="summernote" asp-for="@Model.Content"></textarea>
+        </div>
+        <div class="text-danger"
+             id="summerNote-Error"
+             style="display:none;">
+        </div>
 
-        <button type="submit" class="btn btn-primary mt-5">
+        <button type="submit" class="btn btn-primary mt-5" onclick="event.preventDefault(); validarTextArea();">
             Submit Text
         </button>
     </form>
@@ -31,6 +37,23 @@
     }
 
     <script>
+
+        function validarTextArea() {
+
+            var isValid = true;
+
+            if ($('#summernote').summernote('isEmpty')) {
+                isValid = false;
+                $('#summerNote-Error').text('O campo Texto é de preenchimento obrigatório.').show();
+            } else {
+                $('#summerNote-Error').hide();
+            }
+
+            if (isValid) {
+                var form = $('#textoEditorForm');
+                form.submit();
+            }
+        }
 
         $(document).ready(function () {
             $('#summernote').summernote({
