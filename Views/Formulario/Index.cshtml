@@ -1,4 +1,4 @@
-﻿@model string
+﻿@model Formulario
 
 @{
     ViewData["Title"] = "Formulario";
@@ -9,7 +9,7 @@
     <form action="/" method="post">
 
         <label class="form-label">Nome</label>
-        <input name="test" type="text" class="form-control" value="@Model"/>
+        <input name="Nome" type="text" class="form-control" value="@Model.Nome"/>
 
         <button type="reset" class="btn btn-primary mt-2">
             Limpar - 1 Form
@@ -22,10 +22,26 @@
     <form action="/" method="post">
 
         <label class="form-label">Nome</label>
-        <input name="test" type="text" class="form-control" value="@Model" />
+        <input name="Nome" type="text" class="form-control" value="@Model.Nome" />
 
         <button type="reset" class="btn btn-primary mt-2">
             Limpar - 2 Form
         </button>
+    </form>
+</div>
+
+<div class="mt-5">
+    <form asp-action="PostForm">
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="inlineCheckbox1" asp-for="@Model.Radio.Periodo" value="1">
+            <label class="form-check-label" for="inlineCheckbox1">Dia</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="inlineCheckbox2" asp-for="@Model.Radio.Periodo" value="2">
+            <label class="form-check-label" for="inlineCheckbox2">Noite</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
 </div>
