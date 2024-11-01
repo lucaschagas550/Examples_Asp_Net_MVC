@@ -10,8 +10,7 @@
           method="post">
 
 
-        <select 
-            id="multiple-select-clear-field"
+        <select id="multiple-select-clear-field"
                 class="form-select"
                 asp-items="@ViewBag.Paises"
                 asp-for="@Model"
@@ -21,9 +20,23 @@
         </select>
 
         <button class="btn btn-primary mt-3"
-                type="submit">
-            Enviar Paises
+                type="submit"
+                onclick="event.preventDefault();obterPaisesSelecionados();">
+            Clicar para JS pegar os valores
         </button>
+    </form>
+
+    <!-- Placeholder para os inputs hidden -->
+    <form asp-action="Create"
+          method="post">
+        <div id="hidden-paises-container">
+        </div>
+
+        <button class="btn btn-primary mt-3"
+                type="submit">
+            Enviar Paises True
+        </button>
+
     </form>
 </div>
 
@@ -41,5 +54,23 @@
             closeOnSelect: false,
             allowClear: true,
         });
+
+        function obterPaisesSelecionados() {
+            var selectedValues = $('#multiple-select-clear-field').val();
+
+            // Verificar valores no console (para depuração)
+            console.log(selectedValues);
+
+            // Adicionar um input hidden para cada valor selecionado
+            if (selectedValues) {
+                selectedValues.forEach(function (value) {
+                    $('<input>').attr({
+                        type: 'hidden',
+                        name: 'request.PaisesId', // Nome precisa ser o mesmo esperado pela controladora
+                        value: value
+                    }).appendTo('#hidden-paises-container');
+                });
+            }
+        }
     </script>
 }
