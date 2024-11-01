@@ -15,7 +15,13 @@ namespace Examples_MVC.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var dia = new TestRadio(true, false);
+            return View(dia);
+        }
+
+        public IActionResult Receber(TestRadio radio)
+        {
+            return View("Index",radio);
         }
 
         public IActionResult Privacy()
