@@ -1,0 +1,31 @@
+﻿@model string
+
+@{
+    ViewData["Title"] = "Formulario";
+}
+
+<div class="mt-5">
+
+    <form action="/" method="post">
+
+        <label class="form-label">Nome</label>
+        <input name="test" type="text" class="form-control" value="@Model"/>
+
+        <button type="reset" class="btn btn-primary mt-2">
+            Limpar - 1 Form
+        </button>
+    </form>
+</div>
+
+<div class="mt-5">
+
+    <form action="/" method="post">
+
+        <label class="form-label">Nome</label>
+        <input name="test" type="text" class="form-control" value="@Model" />
+
+        <button type="reset" class="btn btn-primary mt-2">
+            Limpar - 2 Form
+        </button>
+    </form>
+</div>
