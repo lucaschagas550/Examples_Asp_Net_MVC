@@ -53,6 +53,11 @@
             placeholder: $(this).data('placeholder'),
             closeOnSelect: false,
             allowClear: true,
+            language: {
+                noResults: function () {
+                    return "Nenhum resultado encontrado"; // Substitua pela mensagem desejada
+                }
+            }
         });
 
         function obterPaisesSelecionados() {
