@@ -1,0 +1,17 @@
+﻿@model List<Client>
+
+@{
+    ViewData["Title"] = "Files";
+}
+
+<div class="mt-5">
+    <form asp-controller="File"
+          asp-action="Exportar"
+          method="post">
+
+          <button type="submit"
+                  class="btn btn-success">
+              Exporta em .CSV
+         </button>
+    </form>
+</div>
