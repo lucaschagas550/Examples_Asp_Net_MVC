@@ -9,7 +9,7 @@
     <form action="/" method="post">
 
         <label class="form-label">Nome</label>
-        <input name="Nome" type="text" class="form-control" value="@Model.Nome"/>
+        <input name="Nome" type="text" class="form-control" value="@Model.Nome" />
 
         <button type="reset" class="btn btn-primary mt-2">
             Limpar - 1 Form
@@ -45,3 +45,82 @@
         <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
 </div>
+
+<hr />
+
+<div class="mt-5">
+
+    <h3>Select List Exercicio - ANO</h3>
+
+    <form asp-controller="Formulario"
+          asp-action="PostSelectListExercicio"
+          method="post">
+
+        <div class="col-12 mt-2">
+            <label class="fw-bold mb-1">
+                Exercício
+            </label>
+        </div>
+
+        <div class="row">
+            <!-- De -->
+            <div class="col-md-6 mb-2">
+                <div class="input-group">
+                    <label class="form-label me-2 mt-2"
+                           for="exercicio-De-Filtro">
+                        De
+                    </label>
+                    <span class="input-group-text fw-bold" style="color:#17629E">
+                        <i class="bi bi-calendar-month"></i>
+                    </span>
+                    <select id="exercicio-De-Filtro"
+                            asp-items="@ViewBag.ExercicioIniciadoEm1995"
+                            asp-for="@Model.ExercicioDe"
+                            class="form-select"
+                            title="De Exercício"
+                            onchange="selecaoItensExercicioAte();">
+                        <option value="">Selecione o Exercício De</option>
+                    </select>
+                </div>
+                <div class="text-danger" id="exercicio-De-Filtro-Error" style="display:none;"></div>
+            </div>
+
+            <!-- Ate -->
+            <div class="col-md-6 mb-2">
+                <div class="input-group">
+                    <label class="form-label me-2 mt-2"
+                           for="exercicio-Ate-Filtro">
+                        Até
+                    </label>
+                    <span class="input-group-text fw-bold" style="color:#17629E">
+                        <i class="bi bi-calendar-month"></i>
+                    </span>
+                    <select id="exercicio-Ate-Filtro"
+                            asp-items="@ViewBag.ExercicioIniciadoEm1995"
+                            asp-for="@Model.ExercicioAte"
+                            class="form-select"
+                            title="Até Exercício">
+                        <option value="">Selecione o Exercício Até</option>
+                    </select>
+                </div>
+                <div class="text-danger" id="exercicio-Ate-Filtro-Error" style="display:none;"></div>
+            </div>
+        </div>
+
+        <div class="mt-3">
+            <button type="submit" class="btn btn-primary">
+                Enviar Select List
+            </button>
+        </div>
+    </form>
+
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script src="js/Formulario/Formulario.js"></script>
+}
